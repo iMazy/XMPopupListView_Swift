@@ -9,13 +9,22 @@
 import UIKit
 
 class XMPopupListView: UIControl {
+    
+    var boundView1: UIView?
+    var dataSource1: Any?
+    var delegate1: Any?
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    init(boundView: UIView,datasource:Any,delegate:Any) {
+        
+        super.init(frame: CGRect.zero)
+        
+        boundView1 = boundView
+        dataSource1 = datasource
+        delegate1 = delegate
+        
     }
-    */
-
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
