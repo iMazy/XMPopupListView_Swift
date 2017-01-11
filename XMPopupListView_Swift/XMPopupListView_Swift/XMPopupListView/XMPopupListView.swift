@@ -14,6 +14,17 @@ class XMPopupListView: UIControl {
     var xm_dataSource: XMPopupListViewDataSource?
     var xm_delegate: XMPopupListViewDelegate?
     
+    var isShowing: Bool?
+    
+    var tableView: UITableView = {
+        let tb = UITableView(frame: CGRect.zero, style: .plain)
+        tb.clipsToBounds = true
+        tb.layer.cornerRadius = 3
+        tb.separatorStyle = .none
+        tb.backgroundColor = UIColor.white
+        return tb
+    }()
+    
 
     init(boundView: UIView,dataSource:XMPopupListViewDataSource,delegate:XMPopupListViewDelegate) {
         
@@ -29,13 +40,8 @@ class XMPopupListView: UIControl {
         xm_dataSource = dataSource
         xm_delegate = delegate
         
-        self.tableView = UITableView(frame: CGRect.zero, style: .plain)
-        self.tableView?.delegate = self
-        self.tableView?.dataSource = self
-        self.tableView?.clipsToBounds = true
-        self.tableView?.layer.cornerRadius = 3
-        self.tableView?.separatorStyle = .none
-        self.tableView?.backgroundColor = UIColor.white
+        tableView.delegate = self
+        tableView.dataSource = self
         
         self.boundView = boundView
        
@@ -47,15 +53,61 @@ class XMPopupListView: UIControl {
     
     @objc func dismiss() {
         
+        guard let isShowing = isShowing,
+            let boundViewframe = boundView?.frame
+            else {
+                return
+        }
+        
+        if isShowing {
+            return
+        }
+        
+        guard let rect = self.boundView?.frame else {
+            return
+        }
+        
+        UIView.animate(withDuration: 0.3, animations: { 
+        
+        }) { (_) in
+            self.tableView.frame = CGRect(x: rect.minX, y: rect.maxY + 5, width: boundViewframe.width, height: 0)
+            self.tableView.removeFromSuperview()
+            self.removeFromSuperview()
+        }
+        self.isShowing = false
     }
     
     func show(){
+    
         
+        guard let isShowing = isShowing,
+         let boundViewframe = boundView?.frame
+        else {
+            return
+        }
+        
+        if isShowing {
+            return
+        }
+        
+        guard let rect = boundView?.superview?.convert(boundViewframe, to: superview) else {
+            return
+        }
+        
+        self.tableView.frame = CGRect(x: rect.minX, y: rect.maxY + 5, width: boundViewframe.width, height: 0.0)
+        
+        superview?.addSubview(self)
+        superview?.addSubview(tableView)
+        
+        let rows = (xm_dataSource?.numberOfRowsInSection(section: 0))! <= 5 ? xm_dataSource?.numberOfRowsInSection(section: 0) : 5
+        
+        UIView.animate(withDuration: 0.3) {
+            self.tableView.frame = CGRect(x: rect.minX, y: rect.maxY + 5, width: boundViewframe.width, height: CGFloat(44 * (rows ?? 0)))
+        }
+        
+        self.isShowing = true
+        tableView.reloadData()
     }
-    
-    var tableView: UITableView?
-    
-    var isShowing: Bool?
     
     
     required init?(coder aDecoder: NSCoder) {
