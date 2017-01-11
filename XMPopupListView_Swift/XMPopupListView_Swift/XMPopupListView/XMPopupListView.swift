@@ -123,20 +123,51 @@ protocol XMPopupListViewDelegate {
 protocol XMPopupListViewDataSource {
     
     func itemCell(indexPath: IndexPath) -> UITableViewCell
-    func numberOfRowsInSection(section: NSInteger) -> NSInteger
+    func numberOfRowsInSection(section: Int) -> Int
     
     func numberOfSections() -> NSInteger
-    func itemCellHeight(indexPath: IndexPath) -> Float
-    func titleInSection(section: NSInteger) -> String
+    func itemCellHeight(indexPath: IndexPath) -> CGFloat
+    func titleInSection(section: NSInteger) -> NSString
 }
 
 
 extension XMPopupListView: UITableViewDataSource,UITableViewDelegate {
+    
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        if (self.xm_dataSource != nil) {
+            return (self.xm_dataSource?.itemCellHeight(indexPath: indexPath))!
+        }
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if self.xm_delegate != nil {
+            self.xm_delegate?.clickedListViewAtIndexPath(indexPath: indexPath)
+        }
+        self.dismiss()
+    }
+    
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        if self.xm_dataSource != nil {
+            return (self.xm_dataSource?.numberOfSections())!
+        }
+        return 1
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        if self.xm_dataSource != nil {
+            return (self.xm_dataSource?.numberOfRowsInSection(section: section))!
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if self.xm_dataSource != nil {
+            return (self.xm_dataSource?.itemCell(indexPath: indexPath))!
+        }
         return UITableViewCell()
     }
 }
