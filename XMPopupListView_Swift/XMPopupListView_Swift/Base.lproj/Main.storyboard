@@ -56,6 +56,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="SV9-7m-NR3"/>
+                    <connections>
+                        <outlet property="addressField" destination="43T-wz-Sbq" id="PCa-qc-nkr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

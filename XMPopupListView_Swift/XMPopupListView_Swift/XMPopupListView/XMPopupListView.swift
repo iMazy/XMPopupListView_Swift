@@ -19,7 +19,7 @@ class XMPopupListView: UIControl {
     var tableView: UITableView = {
         let tb = UITableView(frame: CGRect.zero, style: .plain)
         tb.clipsToBounds = true
-        tb.layer.cornerRadius = 3
+        tb.layer.cornerRadius = 5
         tb.separatorStyle = .none
         tb.backgroundColor = UIColor.white
         return tb
@@ -59,7 +59,7 @@ class XMPopupListView: UIControl {
                 return
         }
         
-        if isShowing {
+        if !isShowing {
             return
         }
         
@@ -109,6 +109,9 @@ class XMPopupListView: UIControl {
         tableView.reloadData()
     }
     
+    func reloadListData() {
+        self.tableView.reloadData()
+    }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -145,8 +148,8 @@ extension XMPopupListView: UITableViewDataSource,UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if self.xm_delegate != nil {
             self.xm_delegate?.clickedListViewAtIndexPath(indexPath: indexPath)
+            self.dismiss()
         }
-        self.dismiss()
     }
     
 
