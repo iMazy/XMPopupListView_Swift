@@ -10,12 +10,15 @@ import UIKit
 
 class XMPopupListView: UIControl {
 
+    /// 被依赖视图
     var boundView: UIView?
+    /// 数据源
     var xm_dataSource: XMPopupListViewDataSource?
+    /// 代理
     var xm_delegate: XMPopupListViewDelegate?
-    
+    /// 是否弹出
     var isShowing: Bool?
-    
+    /// 弹出的tableView
     var tableView: UITableView = {
         let tb = UITableView(frame: CGRect.zero, style: .plain)
         tb.clipsToBounds = true
@@ -26,6 +29,12 @@ class XMPopupListView: UIControl {
     }()
     
 
+    /// 构造函数
+    ///
+    /// - Parameters:
+    ///   - boundView: 绑定视图
+    ///   - dataSource: 数据源
+    ///   - delegate: 代理
     init(boundView: UIView,dataSource:XMPopupListViewDataSource,delegate:XMPopupListViewDelegate) {
         
         let screenBounds = UIScreen.main.bounds
@@ -51,6 +60,7 @@ class XMPopupListView: UIControl {
         
     }
     
+    /// 隐藏
     @objc func dismiss() {
         
         guard let isShowing = isShowing,
@@ -77,8 +87,9 @@ class XMPopupListView: UIControl {
         self.isShowing = false
     }
     
-    func show(){
     
+    /// 展示
+    func show(){
         
         guard let isShowing = isShowing,
          let boundViewframe = boundView?.frame
@@ -109,6 +120,8 @@ class XMPopupListView: UIControl {
         tableView.reloadData()
     }
     
+    
+    /// 刷新表格
     func reloadListData() {
         self.tableView.reloadData()
     }
@@ -118,11 +131,13 @@ class XMPopupListView: UIControl {
     }
 }
 
+/// 代理方法
 protocol XMPopupListViewDelegate {
     
     func clickedListViewAtIndexPath(indexPath: IndexPath)
 }
 
+/// 数据源方法
 protocol XMPopupListViewDataSource {
     
     func itemCell(indexPath: IndexPath) -> UITableViewCell
@@ -134,8 +149,9 @@ protocol XMPopupListViewDataSource {
 }
 
 
+
+// MARK: - UITableViewDataSource,UITableViewDelegate
 extension XMPopupListView: UITableViewDataSource,UITableViewDelegate {
-    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         

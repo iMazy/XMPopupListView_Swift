@@ -17,6 +17,7 @@ class ViewController: UIViewController  {
     
     let dataSource = ["男","女"]
     
+    
     var currentField: UITextField?
     
     
@@ -25,11 +26,6 @@ class ViewController: UIViewController  {
         // Do any additional setup after loading the view, typically from a nib.
         
         addressField.delegate = self
-        
-//        popupListView?.xm_dataSource = self
-//        popupListView?.xm_delegate = self
-        
-//        self.popupListView = XMPopupListView.init(boundView: addressField, dataSource: self, delegate: self)
         
     }
 
