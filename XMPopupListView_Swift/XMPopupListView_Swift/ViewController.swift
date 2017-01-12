@@ -102,9 +102,22 @@ extension ViewController: UITextFieldDelegate {
             }
         }
         
-        self.popupListView = XMPopupListView.init(boundView: textField, dataSource: self, delegate: self)
-        self.view.addSubview(self.popupListView!)
-        popupListView?.show()
+        if self.dataSource.count <= 0 {
+            
+            /// alert提示
+            let alertVC = UIAlertController(title: "温馨提示", message: "请选择上一级菜单", preferredStyle: .alert)
+            let sureAction = UIAlertAction(title: "确定", style: .default, handler: nil)
+            alertVC.addAction(sureAction)
+            present(alertVC, animated: true, completion: nil)
+            
+            
+        } else {
+            
+            self.popupListView = XMPopupListView.init(boundView: textField, dataSource: self, delegate: self)
+            self.view.addSubview(self.popupListView!)
+            popupListView?.show()
+        }
+        
         return false
     }
 }
