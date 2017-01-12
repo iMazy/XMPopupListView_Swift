@@ -34,11 +34,12 @@ class ViewController: UIViewController  {
                           ["city":"深圳市","area":["福田区","龙岗区","罗湖区","宝安区","盐田区","龙华区"]],
                           ["city":"珠海市","area":["香洲区","金湾区","斗门区"]]]]
     ]
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+    
     }
 
     override func didReceiveMemoryWarning() {

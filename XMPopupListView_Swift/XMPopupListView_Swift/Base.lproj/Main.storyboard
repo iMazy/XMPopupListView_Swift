@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--XMPopupListView-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="XMPopupListView_Swift" customModuleProvider="target" sceneMemberID="viewController">
@@ -62,7 +62,7 @@
                             <constraint firstItem="43T-wz-Sbq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="x9D-zv-ib4"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="SV9-7m-NR3"/>
+                    <navigationItem key="navigationItem" title="XMPopupListView" id="SV9-7m-NR3"/>
                     <connections>
                         <outlet property="areaField" destination="2LH-Et-1uT" id="rAv-Fh-Sgw"/>
                         <outlet property="cityField" destination="n3K-As-34l" id="mJh-Hz-dqE"/>
