@@ -21,48 +21,57 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请选择性别" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2LH-Et-1uT">
-                                <rect key="frame" x="251" y="184" width="90" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="90" id="dBv-8z-dMf"/>
-                                </constraints>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请选择省" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="43T-wz-Sbq">
+                                <rect key="frame" x="20" y="134" width="105" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="t4h-XK-gVr"/>
+                                </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请选择职称" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="n3K-As-34l">
-                                <rect key="frame" x="34" y="184" width="197" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请选择区" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2LH-Et-1uT">
+                                <rect key="frame" x="250" y="134" width="105" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="3Ze-D9-caE"/>
+                                </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请选择地址" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="43T-wz-Sbq">
-                                <rect key="frame" x="34" y="134" width="307" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请选择市" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="n3K-As-34l">
+                                <rect key="frame" x="135" y="134" width="105" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="k92-7w-93M"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="2LH-Et-1uT" firstAttribute="leading" secondItem="n3K-As-34l" secondAttribute="trailing" constant="20" id="FOP-ky-Z29"/>
+                            <constraint firstItem="2LH-Et-1uT" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" constant="-20" id="78C-Gz-LnM"/>
+                            <constraint firstItem="2LH-Et-1uT" firstAttribute="leading" secondItem="n3K-As-34l" secondAttribute="trailing" constant="10" id="A5Z-48-yVc"/>
+                            <constraint firstItem="n3K-As-34l" firstAttribute="leading" secondItem="43T-wz-Sbq" secondAttribute="trailing" constant="10" id="FJ7-gd-1Tj"/>
                             <constraint firstItem="43T-wz-Sbq" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="70" id="HRs-CC-W1U"/>
-                            <constraint firstAttribute="trailing" secondItem="43T-wz-Sbq" secondAttribute="trailing" constant="34" id="Oif-Ro-0pv"/>
-                            <constraint firstItem="2LH-Et-1uT" firstAttribute="trailing" secondItem="43T-wz-Sbq" secondAttribute="trailing" id="XAh-DP-aGQ"/>
-                            <constraint firstItem="n3K-As-34l" firstAttribute="leading" secondItem="43T-wz-Sbq" secondAttribute="leading" id="dzh-se-hoc"/>
-                            <constraint firstItem="43T-wz-Sbq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="34" id="x9D-zv-ib4"/>
-                            <constraint firstItem="n3K-As-34l" firstAttribute="top" secondItem="43T-wz-Sbq" secondAttribute="bottom" constant="20" id="xT4-qT-CtR"/>
-                            <constraint firstItem="2LH-Et-1uT" firstAttribute="centerY" secondItem="n3K-As-34l" secondAttribute="centerY" id="xrB-Ti-Hjl"/>
+                            <constraint firstItem="n3K-As-34l" firstAttribute="centerY" secondItem="43T-wz-Sbq" secondAttribute="centerY" id="XGz-nX-fWc"/>
+                            <constraint firstItem="2LH-Et-1uT" firstAttribute="width" secondItem="43T-wz-Sbq" secondAttribute="width" id="btg-fH-vpC"/>
+                            <constraint firstItem="2LH-Et-1uT" firstAttribute="centerY" secondItem="43T-wz-Sbq" secondAttribute="centerY" id="esN-5h-Vy1"/>
+                            <constraint firstItem="n3K-As-34l" firstAttribute="width" secondItem="43T-wz-Sbq" secondAttribute="width" id="jqB-Zk-fMy"/>
+                            <constraint firstItem="43T-wz-Sbq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="x9D-zv-ib4"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="SV9-7m-NR3"/>
                     <connections>
-                        <outlet property="addressField" destination="43T-wz-Sbq" id="PCa-qc-nkr"/>
+                        <outlet property="areaField" destination="2LH-Et-1uT" id="rAv-Fh-Sgw"/>
+                        <outlet property="cityField" destination="n3K-As-34l" id="mJh-Hz-dqE"/>
+                        <outlet property="provinceField" destination="43T-wz-Sbq" id="i7U-EA-7Xh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="783" y="45"/>
+            <point key="canvasLocation" x="781.60000000000002" y="44.527736131934034"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wKu-Jh-sYB">

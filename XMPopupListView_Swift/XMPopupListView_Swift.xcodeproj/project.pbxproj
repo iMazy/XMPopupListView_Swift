@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F57859A1E270EAE00AD146F /* PropertyList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9F5785991E270EAE00AD146F /* PropertyList.plist */; };
 		9FDB1F801E24E09A001BE022 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDB1F7F1E24E09A001BE022 /* AppDelegate.swift */; };
 		9FDB1F821E24E09A001BE022 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDB1F811E24E09A001BE022 /* ViewController.swift */; };
 		9FDB1F851E24E09A001BE022 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FDB1F831E24E09A001BE022 /* Main.storyboard */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9F5785991E270EAE00AD146F /* PropertyList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PropertyList.plist; sourceTree = "<group>"; };
 		9FDB1F7C1E24E09A001BE022 /* XMPopupListView_Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XMPopupListView_Swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FDB1F7F1E24E09A001BE022 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9FDB1F811E24E09A001BE022 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				9FDB1F861E24E09A001BE022 /* Assets.xcassets */,
 				9FDB1F881E24E09A001BE022 /* LaunchScreen.storyboard */,
 				9FDB1F8B1E24E09A001BE022 /* Info.plist */,
+				9F5785991E270EAE00AD146F /* PropertyList.plist */,
 			);
 			path = XMPopupListView_Swift;
 			sourceTree = "<group>";
@@ -135,6 +138,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9FDB1F8A1E24E09A001BE022 /* LaunchScreen.storyboard in Resources */,
+				9F57859A1E270EAE00AD146F /* PropertyList.plist in Resources */,
 				9FDB1F871E24E09A001BE022 /* Assets.xcassets in Resources */,
 				9FDB1F851E24E09A001BE022 /* Main.storyboard in Resources */,
 			);
@@ -309,6 +313,7 @@
 				9FDB1F901E24E09A001BE022 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
