@@ -17,30 +17,39 @@ class ViewController: UIViewController  {
     
     var popupListView:XMPopupListView?
     
-    lazy var dataSource = {
-       return Array<Any>()
+    lazy var dataSource:[String] = {
+       return Array()
     }()
     
     var currentField: UITextField?
     
-    let sourceArray = [
-    ["province":"湖北省",
-                "cities":[["city":"武汉市","area":["武昌区","汉口区","汉阳区"]],
-                          ["city":"襄阳市","area":["樊城区","襄城区"]]]],
-    ["province":"北京市",
-                "cities":[["city":"北京市","area":["朝阳区","海淀区","丰台区"]]]],
-    ["province":"广东省",
-                "cities":[["city":"广州市","area":["越秀区","海珠区","天河区","白云区","黄埔区","南沙区","荔湾区"]],
-                          ["city":"深圳市","area":["福田区","龙岗区","罗湖区","宝安区","盐田区","龙华区"]],
-                          ["city":"珠海市","area":["香洲区","金湾区","斗门区"]]]]
-    ]
+    lazy var sourceArray:[[String: AnyObject]] = {
+        return Array()
+    }()
+    
+//    let sourceArray = [["province":"湖北省",
+//                "cities":[["city":"武汉市","area":["武昌区","汉口区","汉阳区"]],
+//                          ["city":"襄阳市","area":["樊城区","襄城区"]]]],
+//    ["province":"北京市",
+//                "cities":[["city":"北京市","area":["朝阳区","海淀区","丰台区"]]]],
+//    ["province":"广东省",
+//                "cities":[["city":"广州市","area":["越秀区","海珠区","天河区","白云区","黄埔区","南沙区","荔湾区"]],
+//                          ["city":"深圳市","area":["福田区","龙岗区","罗湖区","宝安区","盐田区","龙华区"]],
+//                          ["city":"珠海市","area":["香洲区","金湾区","斗门区"]]]]]
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
         
+        /// 获取plist文件路径
+        let path = Bundle.main.path(forResource: "source.plist", ofType: nil) ?? ""
         
+        /// 从路径中获取文件
+        let array: NSArray = NSArray(contentsOfFile: path) ?? []
+        
+        sourceArray = array as! [[String : AnyObject]]
         
     }
 
@@ -59,8 +68,11 @@ extension ViewController: UITextFieldDelegate {
         self.dataSource.removeAll()
         
         if textField == provinceField {
-            for dict in sourceArray {
-                self.dataSource.append(dict["province"] ?? "")
+            for dict:[String: AnyObject] in sourceArray {
+                
+                self.dataSource.append(dict["province"] as! String? ?? "")
+                
+//                self.dataSource.append(dict["province"] ?? "")
             }
             
         } else if textField == cityField {
@@ -83,7 +95,7 @@ extension ViewController: UITextFieldDelegate {
                         
                         if dic["city"] as? String == self.cityField.text {
                             
-                            self.dataSource = dic["area"] as! [Any]
+                            self.dataSource = dic["area"] as! [String]
                         }
                     }
                 }
@@ -101,7 +113,7 @@ extension ViewController: XMPopupListViewDelegate {
     
     func clickedListViewAtIndexPath(indexPath: IndexPath) {
         print(dataSource[indexPath.row])
-        currentField?.text = dataSource[indexPath.row] as? String ?? ""
+        currentField?.text = dataSource[indexPath.row] as String 
         
     }
 }
@@ -130,7 +142,7 @@ extension ViewController: XMPopupListViewDataSource {
         }
         
         let cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
-        cell.textLabel?.text = dataSource[indexPath.row] as? String ?? ""
+        cell.textLabel?.text = dataSource[indexPath.row] as String
         return cell
     }
 
