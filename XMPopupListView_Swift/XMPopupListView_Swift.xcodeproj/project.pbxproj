@@ -13,6 +13,7 @@
 		9FDB1F871E24E09A001BE022 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FDB1F861E24E09A001BE022 /* Assets.xcassets */; };
 		9FDB1F8A1E24E09A001BE022 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FDB1F881E24E09A001BE022 /* LaunchScreen.storyboard */; };
 		9FDB1F951E24E17C001BE022 /* XMPopupListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDB1F941E24E17C001BE022 /* XMPopupListView.swift */; };
+		9FFC71B71E272C2F0048EA1F /* source.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9FFC71B61E272C2F0048EA1F /* source.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		9FDB1F891E24E09A001BE022 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9FDB1F8B1E24E09A001BE022 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9FDB1F941E24E17C001BE022 /* XMPopupListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMPopupListView.swift; sourceTree = "<group>"; };
+		9FFC71B61E272C2F0048EA1F /* source.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = source.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				9FDB1F931E24E17C001BE022 /* XMPopupListView */,
 				9FDB1F831E24E09A001BE022 /* Main.storyboard */,
 				9FDB1F861E24E09A001BE022 /* Assets.xcassets */,
+				9FFC71B61E272C2F0048EA1F /* source.plist */,
 				9FDB1F881E24E09A001BE022 /* LaunchScreen.storyboard */,
 				9FDB1F8B1E24E09A001BE022 /* Info.plist */,
 			);
@@ -137,6 +140,7 @@
 				9FDB1F8A1E24E09A001BE022 /* LaunchScreen.storyboard in Resources */,
 				9FDB1F871E24E09A001BE022 /* Assets.xcassets in Resources */,
 				9FDB1F851E24E09A001BE022 /* Main.storyboard in Resources */,
+				9FFC71B71E272C2F0048EA1F /* source.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
